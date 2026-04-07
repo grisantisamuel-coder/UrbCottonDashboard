@@ -145,7 +145,6 @@ body.light .chip{border-color:rgba(0,0,0,.12)}
 </div>
 <div class="content">
 <div class="sec active" id="sec-resumen">
-  <div class="pills" id="pills"></div>
   <div class="g2">
     <div class="card"><h3>Distribución por Color</h3><div class="sub">Unidades por color</div><div class="cw"><canvas id="cCol"></canvas></div></div>
     <div class="card"><h3>Distribución por Género</h3><div class="sub">CAB vs DAMA</div><div class="cw"><canvas id="cGen"></canvas></div></div>
@@ -346,9 +345,7 @@ function updateKPIs(){
     '<div class="kpib"><div class="kv">'+Object.keys(cs).length+'</div><div class="kl">Colores</div></div>'+
     '<div class="kpib"><div class="kv">'+mA.length+'</div><div class="kl">Meses</div></div>'+
     '<div class="kpib"><div class="kv">'+varText+'</div><div class="kl">Variación</div><div class="ksub">'+varSub+'</div></div>';
-  var pl=document.getElementById('pills');if(!pl)return;
-  var byM=ag(DATA.raw_rows.filter(function(r){return getMesesActivos().indexOf(r.mes)>=0;}),'modelo');
-  pl.innerHTML=byM.map(function(x,i){return'<div class="pill"><span class="dot" style="background:'+PAL[i%PAL.length]+'"></span>'+(MICO[x.k]||'')+'&nbsp;<strong>'+x.k+'</strong>&nbsp;'+x.v+' und ('+x.pct+'%)</div>';}).join('');
+  // pills removed for Urban Cotton — names too long
 }
 
 function renderAlertas(){
